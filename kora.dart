@@ -1,28 +1,20 @@
 
+playerData(Map<String, dynamic>? player) {
+
+  print('''
+    ${player!['name']}, 
+    Father : ${player['familyMember'][0]['name']},
+    mother : ${player['familyMember'][1]['name']},
+''');
+}
+
 
 void main() {
 
-  // std => id => email, name
-
-  List<Map<int, Map<String, String>>> std = [
-    {
-      0 : {
-        'name' : 'ali',
-        'email' : 'ali.com'
-      },
-    },
-    {
-      0 : {
-        'name' : 'ali',
-        'email' : 'ali.com'
-      },
-    },
-  ];
-
-  Map<int, Map<String, dynamic>> stds = {
+  Map<int, Map<String, dynamic>> player = {
     0 : {
-        'name' : 'ali',
-        'email' : 'ali.com',
+        'name' : 'ahmed',
+        'email' : 'ahmed.com',
         'scores' : {
           'sub1' : 200,
           'sub2' : 300
@@ -31,22 +23,49 @@ void main() {
           1, 2, 3
         ],
         'isSuccess' : true,
+        'familyMember' : [
+          {
+            'name' : 'ali father',
+            'age' : 50
+          },
+          {
+            'name' : 'ali mother',
+            'age' : 40
+          },
+          {
+            'name' : 'ali sister',
+            'age' : 20
+          },
+        ]
       },
       1 : {
         'name' : 'ali',
         'email' : 'ali.com',
         'scores' : {
-          'sub1' : 200,
-          'sub2' : 300
+          'sub1' : 250,
+          'sub2' : 350
         },
         'fiends' : [
           1, 2, 3
         ],
         'isSuccess' : false,
+        'familyMember' : [
+          {
+            'name' : 'ali father',
+            'age' : 50
+          },
+          {
+            'name' : 'ali mother',
+            'age' : 40
+          },
+          {
+            'name' : 'ali sister',
+            'age' : 20
+          },
+        ]
       },
   };
 
-  print(stds[0]);
-  std[0][0]!['email'] = 'email.com';
-  print(std[0][0]);
+  playerData(player[0]);
+  
 }
