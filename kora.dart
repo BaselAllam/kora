@@ -23,7 +23,19 @@ loopOnPlayerData(List<Map<String, dynamic>>? playerList) {
 
 void main() {
 
-  loopOnPlayerData(player);
+  // loopOnPlayerData(player);
+
+  // lists.forEach((key, value) {
+  //   getAvg(value);
+  // });
+
+  player.forEach((i) {
+    num sum = 0;
+    i['scores'].forEach((p, x) {
+      sum += x;
+    });
+    print(sum);
+  });
   
 }
 
@@ -33,29 +45,36 @@ void main() {
 // avg
 
 
-Map<int, List<num>> lists = {
-  1 : [
-    10, 20, 30
-  ],
-  2 : [
-    100, 200, 300
-  ],
-  3 : [
-    150, 250, 530
-  ],
-  4 : [
-    20, 60, 70
-  ]
-};
+// Map<int, List<num>> lists = {
+//   1 : [
+//     10, 20, 30
+//   ],
+//   2 : [
+//     100, 200, 300
+//   ],
+//   3 : [
+//     150, 250, 530
+//   ],
+//   4 : [
+//     20, 60, 70
+//   ]
+// };
 
 
-getAvg(List x) {
+// getAvg(List<num> x) {
 
-  num sum = x.reduce((value, element) => value + element);
+//   num sum = x.reduce((value, element) => value + element);
 
-  num count = x.length;
+//   num count = x.length;
 
-  num avg = sum / count;
+//   num avg = sum / count;
 
-  print(avg);
-}
+//   print(avg);
+// }
+
+
+// 1- loop on list
+// 2- pointer on scores
+// 3- loop on scores values
+// 4- sum of scores values
+// 5- print
