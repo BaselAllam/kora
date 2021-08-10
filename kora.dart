@@ -1,81 +1,70 @@
+// import 'demodata.dart';
 
-List<Map<String, dynamic>> player = [
-  {
-        'name' : 'ahmed',
-        'email' : 'ahmed.com',
-        'scores' : {
-          'sub1' : 200,
-          'sub2' : 300
-        },
-        'fiends' : [
-          1, 2, 3
-        ],
-        'isSuccess' : false,
-        'familyMember' : [
-          {
-            'name' : 'ahmed father',
-            'age' : 50
-          },
-          {
-            'name' : 'ahmed mother',
-            'age' : 40
-          },
-          {
-            'name' : 'ahmed sister',
-            'age' : 20
-          },
-        ]
-      },
-    {
-        'name' : 'ali',
-        'email' : 'ali.com',
-        'scores' : {
-          'sub1' : 250,
-          'sub2' : 50
-        },
-        'fiends' : [
-          1, 2, 3
-        ],
-        'isSuccess' : true,
-        'familyMember' : [
-          {
-            'name' : 'ali father',
-            'age' : 50
-          },
-          {
-            'name' : 'ali mother',
-            'age' : 40
-          },
-          {
-            'name' : 'ali sister',
-            'age' : 20
-          },
-        ]
-      },
-      {
-        'name' : 'mohsen',
-        'email' : 'mohsen.com',
-        'scores' : {
-          'sub1' : 50,
-          'sub2' : 50
-        },
-        'fiends' : [
-          1, 2, 3
-        ],
-        'isSuccess' : true,
-        'familyMember' : [
-          {
-            'name' : 'mohsen father',
-            'age' : 50
-          },
-          {
-            'name' : 'mohsen mother',
-            'age' : 40
-          },
-          {
-            'name' : 'mohsen sister',
-            'age' : 20
-          },
-        ]
-      },
-];
+// void main() {
+
+//  player.forEach((i) {
+//    num sums = sum(i['scores']);
+//    print(sums);
+//  });
+
+// }
+
+
+// num sum(Map<String, num> numbers) {
+
+//   num sums = 0;
+//   numbers.forEach((key, value) {
+//     sums += value;
+//   });
+//   return sums;
+// }
+
+// main() {
+
+//   test('ahmed', 20, isMarried: true, salary: 200);
+
+// }
+
+// test(String name, int age, {bool isMarried = false, int? salary}) {
+
+//   print('$name $age $isMarried $salary');
+// }
+
+// import 'demodata.dart';
+
+// main() {
+  
+//   player.forEach((i) {
+//     friendData(friend: i['fiends']);
+//   });
+// }
+
+
+// friendData({List? friend}) {
+
+//   print('$friend');
+// }
+
+main() {
+  List<num> y = [10, 20];
+
+  print(avg(y));
+}
+
+num avg(List<num> x) {
+
+  try{
+    num sum = x.reduce((value, element) => value + element);
+
+    num avg = sum / x.length;
+
+    return avg;
+  }catch(e) {
+    print(e);
+    return 404;
+  }
+}
+
+
+
+
