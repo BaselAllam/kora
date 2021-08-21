@@ -2,22 +2,22 @@
 
 class Person{
 
-  String name = 'ahmed';
-  String email = 'email.com';
-  int age = 20;
+  String? name;
+  String? email;
+  int? age;
 
-  test() {
-    return '$name, $email, $age';
-  }
+  Person(this.name, emails, this.age) {
+    this.email = validateEmail(emails);
+  } // Default Constructor
 
-  checkEmail() {
-    return email.endsWith('.com');
+  String validateEmail(String x) {
+    return '$x.com';
   }
 }
 
 main() {
 
-  Person x = Person();
+  Person newPerson = Person('ali', 'ali', 20);
 
-  print(x.checkEmail());
+  print(newPerson.email);
 }
