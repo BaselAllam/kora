@@ -20,7 +20,18 @@ class User{
 }
 
 
-class UserController{}
+class UserController{
+
+  User createUserObj(String name, String email, String password, int mobileNumber) {
+    
+    User newUser = User(name, email, password, mobileNumber);
+
+    return newUser;
+  }
+}
+
+// function create object
+// function create list of object
 
 
 main() {

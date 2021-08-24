@@ -1,6 +1,8 @@
 
-// MVC => Model View Controller
-// BLoC => Business Logic Component
+// Access Modifier
+    // Global || Local
+              // Public || Private ( Getter , Setter )
+
 
 
 class Product{
@@ -8,12 +10,33 @@ class Product{
   // int id = 1;
   String name;
   num price;
-  static int qty = 100;
+  static int _qty = 100;
   
   Product(this.name, this.price) {
-    qty -= 1;
+    _qty -= 1;
   }
+
+  int get quantity => _qty;
+
+  int getQty() {
+    return _qty;
+  } // Getter
+
+  int setQty(int newValue) {
+    _qty = newValue;
+    return _qty;
+  } // Setter
   
+}
+
+
+main() {
+
+  ProductController controller = ProductController();
+
+  for(int i = 0; i < 100; i++) {
+    Product newProduct = Product('apple', 200);
+  }
 }
 
 
@@ -24,17 +47,5 @@ class ProductController{
     num priceAfterDiscount = price - price * (disc / 100);
 
     return priceAfterDiscount;
-  }
-}
-
-
-
-main() {
-
-  ProductController controller = ProductController();
-
-  for(int i = 0; i < 100; i++) {
-    Product newProduct = Product('apple', 200);
-    print(controller.calDis(newProduct.price, 50));
   }
 }
