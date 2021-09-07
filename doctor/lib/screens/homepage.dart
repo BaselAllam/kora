@@ -1,3 +1,7 @@
+import 'package:doctor/demodata.dart';
+import 'package:doctor/theme/sharedTextStyleAndColor.dart';
+import 'package:doctor/widgets/categorywidget.dart';
+import 'package:doctor/widgets/populardrwidget.dart';
 import 'package:flutter/material.dart';
 
 
@@ -41,13 +45,9 @@ class _HomePageState extends State<HomePage> {
         elevation: 0.0,
         title: Text(
           'Welcome',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold
-          ),
+          style: primaryTextStyle
         ),
-        iconTheme: IconThemeData(color: Colors.black, size: 30.0),
+        iconTheme: IconThemeData(color: primaryColor, size: 30.0),
         actions: [
           Icon(Icons.search)
         ],
@@ -72,21 +72,61 @@ class _HomePageState extends State<HomePage> {
                       backgroundImage: NetworkImage('https://avatars.githubusercontent.com/u/44323531?v=4'),
                       backgroundColor: Colors.white,
                     ),
-                    title: Text('Bassel Allam', style: TextStyle(color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold)),
-                    subtitle: Text('My Profile', style: TextStyle(color: Colors.grey, fontSize: 18.0)),
-                    trailing: Icon(Icons.arrow_forward_ios, color: Colors.black, size: 20,),
+                    title: Text('Bassel Allam', style: primaryTextStyle),
+                    subtitle: Text('My Profile', style: secondaryTextStyle),
+                    trailing: Icon(Icons.arrow_forward_ios, color: primaryColor, size: 20,),
                   ),
                 ),
               ),
               for(Map<String, dynamic> i in drawerData)
               ListTile(
-                leading: Icon(i['icon'], color: Colors.black, size: 30),
-                title: Text(i['txt'], style: TextStyle(color: Colors.black, fontSize: 20.0)),
-                trailing: Icon(Icons.arrow_forward_ios, color: Colors.black, size: 20,),
+                leading: Icon(i['icon'], color: primaryColor, size: 30),
+                title: Text(i['txt'], style: primaryTextStyle),
+                trailing: Icon(Icons.arrow_forward_ios, color: primaryColor, size: 20,),
               ),
             ],
         ),
-      )
+      ),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
+          item('Category'),
+          Container(
+            height: 125.0,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: categoryImages.length,
+              itemBuilder: (context, index) {
+                return CategoryWidget(categoryImages[index]);
+              },
+            ),
+          ),
+          item('Popular Doctor'),
+          Container(
+            height: 125.0,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: doctorImages.length,
+              itemBuilder: (context, index) {
+                return PopularDoctorWidget(doctorImages[index]);
+              },
+            ),
+          ),
+          item('Wishlisted Doctor')
+        ],
+      ),
+    );
+  }
+  ListTile item(String title) {
+    return ListTile(
+      title: Text(
+        '$title',
+        style: primaryTextStyle,
+      ),
+      trailing: Text(
+        'view all',
+        style: primaryColorTextStyle,
+      ),
     );
   }
 }
