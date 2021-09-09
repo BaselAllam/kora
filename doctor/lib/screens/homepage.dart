@@ -1,7 +1,17 @@
 import 'package:doctor/demodata.dart';
+import 'package:doctor/screens/allcategory.dart';
+import 'package:doctor/screens/allpopular.dart';
+import 'package:doctor/screens/drawer/aboutus.dart';
+import 'package:doctor/screens/drawer/appointment.dart';
+import 'package:doctor/screens/drawer/contactus.dart';
+import 'package:doctor/screens/drawer/profile.dart';
+import 'package:doctor/screens/drawer/settings.dart';
+import 'package:doctor/screens/drawer/wishlist.dart';
 import 'package:doctor/theme/sharedTextStyleAndColor.dart';
 import 'package:doctor/widgets/categorywidget.dart';
+import 'package:doctor/widgets/doctorwidget.dart';
 import 'package:doctor/widgets/populardrwidget.dart';
+import 'package:doctor/widgets/searchicon.dart';
 import 'package:flutter/material.dart';
 
 
@@ -17,23 +27,28 @@ class _HomePageState extends State<HomePage> {
   List<Map<String, dynamic>> drawerData = [
     {
       'txt' : 'Wishlist',
-      'icon' : Icons.favorite
+      'icon' : Icons.favorite,
+      'class' : Wishlist()
     },
     {
       'txt' : 'Appointment',
-      'icon' : Icons.bookmark
+      'icon' : Icons.bookmark,
+      'class' : Appointment()
     },
     {
       'txt' : 'Settings',
-      'icon' : Icons.settings
+      'icon' : Icons.settings,
+      'class' : Settings()
     },
     {
       'txt' : 'About Us',
-      'icon' : Icons.info
+      'icon' : Icons.info,
+      'class' : AboutUs()
     },
     {
       'txt' : 'Contact Us',
-      'icon' : Icons.phone
+      'icon' : Icons.phone,
+      'class' : ContactUs()
     },
   ];
 
@@ -49,7 +64,7 @@ class _HomePageState extends State<HomePage> {
         ),
         iconTheme: IconThemeData(color: primaryColor, size: 30.0),
         actions: [
-          Icon(Icons.search)
+          SearchButton()
         ],
       ),
       drawer: Drawer(
@@ -75,6 +90,9 @@ class _HomePageState extends State<HomePage> {
                     title: Text('Bassel Allam', style: primaryTextStyle),
                     subtitle: Text('My Profile', style: secondaryTextStyle),
                     trailing: Icon(Icons.arrow_forward_ios, color: primaryColor, size: 20,),
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) {return Profile();}));
+                    },
                   ),
                 ),
               ),
@@ -83,6 +101,9 @@ class _HomePageState extends State<HomePage> {
                 leading: Icon(i['icon'], color: primaryColor, size: 30),
                 title: Text(i['txt'], style: primaryTextStyle),
                 trailing: Icon(Icons.arrow_forward_ios, color: primaryColor, size: 20,),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) {return i['class'];}));
+                },
               ),
             ],
         ),
@@ -90,7 +111,7 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
-          item('Category'),
+          item('Category', AllCategory()),
           Container(
             height: 125.0,
             child: ListView.builder(
@@ -101,7 +122,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          item('Popular Doctor'),
+          item('Popular Doctor', AllPopular()),
           Container(
             height: 125.0,
             child: ListView.builder(
@@ -112,12 +133,14 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          item('Wishlisted Doctor')
+          item('Wishlisted Doctor', Wishlist()),
+          for(String img in doctorImages)
+          DoctorWidget(img),
         ],
       ),
     );
   }
-  ListTile item(String title) {
+  ListTile item(String title, Widget screen) {
     return ListTile(
       title: Text(
         '$title',
@@ -127,6 +150,9 @@ class _HomePageState extends State<HomePage> {
         'view all',
         style: primaryColorTextStyle,
       ),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (_) {return screen;}));
+      },
     );
   }
 }
