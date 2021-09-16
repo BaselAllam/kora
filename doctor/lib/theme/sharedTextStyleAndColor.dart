@@ -9,8 +9,8 @@ Color secondaryColor = Color(0xff676b74);
 
 
 
-TextStyle primaryColorTextStyle = TextStyle(color: mainColor, fontSize: 15.0);
+TextStyle primaryColorTextStyle = TextStyle(color: mainColor, fontSize: 15.0, fontWeight: FontWeight.bold);
 
 TextStyle primaryTextStyle = TextStyle(color: primaryColor, fontSize: 20.0, fontWeight: FontWeight.bold);
 
-TextStyle secondaryTextStyle = TextStyle(color: secondaryColor, fontSize: 17.0);
+TextStyle secondaryTextStyle = TextStyle(color: secondaryColor, fontSize: 17.0, fontWeight: FontWeight.bold);

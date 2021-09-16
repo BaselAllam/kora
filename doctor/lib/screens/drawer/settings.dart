@@ -14,6 +14,8 @@ class _SettingsState extends State<Settings> {
 
 Icon trailingIcon = Icon(Icons.arrow_forward_ios, color: primaryColor, size: 20.0);
 
+bool isPressed = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +37,17 @@ Icon trailingIcon = Icon(Icons.arrow_forward_ios, color: primaryColor, size: 20.
           scrollDirection: Axis.vertical,
           children: [
             Container(
+              height: MediaQuery.of(context).size.height/3.5,
+              width: MediaQuery.of(context).size.width/3,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: NetworkImage('https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?size=338&ext=jpg'),
+                  fit: BoxFit.fill
+                )
+              ),
+            ),
+            Container(
               margin: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
@@ -46,13 +59,32 @@ Icon trailingIcon = Icon(Icons.arrow_forward_ios, color: primaryColor, size: 20.
                 style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
             ),
+            AnimatedContainer(
+              duration: Duration(milliseconds: 500),
+              curve: Curves.easeInOut,
+              height: isPressed == false ? 1.0 : MediaQuery.of(context).size.height/3.3,
+              child: isPressed == false ? SizedBox() :
+               Column(
+                children: [
+                  item('Email', Icons.email, trailingIcon, () {}),
+                  item('User Name', Icons.account_circle, trailingIcon, () {}),
+                  item('Mobile Number', Icons.phone, trailingIcon, () {}),
+                  item('Address', Icons.location_on, trailingIcon, () {}),
+                ],
+              ),
+            ),
             item('Change Password', Icons.lock, trailingIcon, () {}),
             item('Payment', Icons.payment, trailingIcon, () {}),
             item('Sign Out', Icons.exit_to_app, SizedBox(), () {}),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                setState(() {
+                  isPressed = !isPressed;
+                });
+              },
               child: Text(
-                'More Option',
+                isPressed == false ? 
+                'More Option' : 'Less Option',
                 style: TextStyle(color: mainColor, fontWeight: FontWeight.bold, fontSize: 25.0),
               ),
             ),

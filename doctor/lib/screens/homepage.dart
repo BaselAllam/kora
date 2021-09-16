@@ -72,13 +72,6 @@ class _HomePageState extends State<HomePage> {
             children: [
               DrawerHeader(
                 child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    image: DecorationImage(
-                      image: NetworkImage('https://img.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg?size=626&ext=jpg'),
-                      fit: BoxFit.fill
-                    ),
-                  ),
                   alignment: Alignment.center,
                   child: ListTile(
                     leading: CircleAvatar(
@@ -88,11 +81,6 @@ class _HomePageState extends State<HomePage> {
                       backgroundColor: Colors.white,
                     ),
                     title: Text('Bassel Allam', style: primaryTextStyle),
-                    subtitle: Text('My Profile', style: secondaryTextStyle),
-                    trailing: Icon(Icons.arrow_forward_ios, color: primaryColor, size: 20,),
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) {return Profile();}));
-                    },
                   ),
                 ),
               ),
@@ -124,7 +112,7 @@ class _HomePageState extends State<HomePage> {
           ),
           item('Popular Doctor', AllPopular()),
           Container(
-            height: 125.0,
+            height: MediaQuery.of(context).size.height/4,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: doctorImages.length,

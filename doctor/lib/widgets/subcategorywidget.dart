@@ -23,7 +23,7 @@ class _SubDoctorWidgetState extends State<SubDoctorWidget> {
       child: Row(
         children: [
           Container(
-            width: 100.0,
+            width: 75.0,
             height: 100.0,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
@@ -42,7 +42,7 @@ class _SubDoctorWidgetState extends State<SubDoctorWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Doctor Name    ',
+                      ' Doctor Name    ',
                       style: TextStyle(color: mainColor, fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
                     Container(
@@ -63,7 +63,7 @@ class _SubDoctorWidgetState extends State<SubDoctorWidget> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 7.0),
                 child: Text(
-                  'Doctor Specialize',
+                  ' Doctor Specialize',
                   style: secondaryTextStyle
                 ),
               ),
