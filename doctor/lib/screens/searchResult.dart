@@ -1,4 +1,5 @@
 import 'package:doctor/demodata.dart';
+import 'package:doctor/screens/filter.dart';
 import 'package:doctor/theme/sharedTextStyleAndColor.dart';
 import 'package:doctor/widgets/doctorwidget.dart';
 import 'package:doctor/widgets/searchicon.dart';
@@ -27,7 +28,9 @@ class _SearchResultState extends State<SearchResult> {
         actions: [
           IconButton(
             icon: Icon(Icons.tune),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(fullscreenDialog: true, builder: (_) {return FilterScreen();}));
+            },
           )
         ],
       ),
