@@ -1,4 +1,5 @@
 import 'package:doctor/theme/sharedTextStyleAndColor.dart';
+import 'package:doctor/widgets/header.dart';
 import 'package:doctor/widgets/searchicon.dart';
 import 'package:flutter/material.dart';
 
@@ -47,18 +48,7 @@ bool isPressed = false;
                 )
               ),
             ),
-            Container(
-              margin: EdgeInsets.all(5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
-                color: mainColor
-              ),
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                'Account',
-                style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),
-              ),
-            ),
+            Header('Account'),
             AnimatedContainer(
               duration: Duration(milliseconds: 500),
               curve: Curves.easeInOut,

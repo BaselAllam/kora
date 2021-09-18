@@ -1,4 +1,6 @@
+import 'package:doctor/screens/booking.dart';
 import 'package:doctor/theme/sharedTextStyleAndColor.dart';
+import 'package:doctor/widgets/buttonwidget.dart';
 import 'package:doctor/widgets/fav.dart';
 import 'package:doctor/widgets/searchicon.dart';
 import 'package:flutter/material.dart';
@@ -99,6 +101,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                     image: NetworkImage('https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?size=338&ext=jpg'),
                     fit: BoxFit.fill
                   ),
+                  borderRadius: BorderRadius.circular(10.0)
                 ),
               ),
               Container(
@@ -130,31 +133,14 @@ class _DoctorProfileState extends State<DoctorProfile> {
               )
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Patient\n500',
-                style: secondaryTextStyle,
-              ),
-              Text(
-                'Reviews\n1000',
-                style: secondaryTextStyle,
-              ),
-              TextButton(
-                child: Text(
-                  'Book',
-                  style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.bold),
-                ),
-                style: TextButton.styleFrom(
-                  backgroundColor: mainColor,
-                  fixedSize: Size(100, 30),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0))
-                ),
-                onPressed: () {},
-              )
-            ],
-          )
+          ButtonWidget(
+            'Book',
+            Size(200, 30),
+            mainColor,
+            () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) {return Booking();}));
+            }
+          ),
         ],
       ),
     );
