@@ -98,7 +98,7 @@ FilterGender filterGender = FilterGender.male;
               ),
             ),
             cardItemItem(
-              'Price ( High to Low )', 
+              'Price ( Low to High )', 
               '',
               trailing: Radio<FilterPrice>(
                 groupValue: filterPrice,

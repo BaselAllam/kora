@@ -26,7 +26,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
         ),
         iconTheme: IconThemeData(color: primaryColor, size: 30.0),
         actions: [
-          SearchButton()
+          SearchButton(() {})
         ],
       ),
       body: Container(

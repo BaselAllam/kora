@@ -4,7 +4,6 @@ import 'package:doctor/screens/allpopular.dart';
 import 'package:doctor/screens/drawer/aboutus.dart';
 import 'package:doctor/screens/drawer/appointment.dart';
 import 'package:doctor/screens/drawer/contactus.dart';
-import 'package:doctor/screens/drawer/profile.dart';
 import 'package:doctor/screens/drawer/settings.dart';
 import 'package:doctor/screens/drawer/wishlist.dart';
 import 'package:doctor/theme/sharedTextStyleAndColor.dart';
@@ -52,19 +51,31 @@ class _HomePageState extends State<HomePage> {
     },
   ];
 
+  bool pressed = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
-        title: Text(
-          'Welcome',
-          style: primaryTextStyle
+        title: AnimatedContainer(
+          duration: Duration(milliseconds: 500),
+          curve: Curves.bounceInOut,
+          child: pressed == false ? Text(
+            'Welcome',
+            style: primaryTextStyle
+          ) : TextField()
         ),
         iconTheme: IconThemeData(color: primaryColor, size: 30.0),
         actions: [
-          SearchButton()
+          SearchButton(
+            () {
+              setState(() {
+                pressed = !pressed;
+              });
+            }
+          )
         ],
       ),
       drawer: Drawer(

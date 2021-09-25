@@ -2,6 +2,7 @@ import 'package:doctor/demodata.dart';
 import 'package:doctor/screens/filter.dart';
 import 'package:doctor/theme/sharedTextStyleAndColor.dart';
 import 'package:doctor/widgets/doctorwidget.dart';
+import 'package:doctor/widgets/filterButton.dart';
 import 'package:doctor/widgets/searchicon.dart';
 import 'package:flutter/material.dart';
 
@@ -26,12 +27,7 @@ class _SearchResultState extends State<SearchResult> {
         ),
         iconTheme: IconThemeData(color: primaryColor, size: 30.0),
         actions: [
-          IconButton(
-            icon: Icon(Icons.tune),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(fullscreenDialog: true, builder: (_) {return FilterScreen();}));
-            },
-          )
+          FilterButton()
         ],
       ),
       body: Container(

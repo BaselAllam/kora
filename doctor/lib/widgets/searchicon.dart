@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 
 class SearchButton extends StatefulWidget {
 
+  final Function onTap;
+
+  SearchButton(this.onTap);
+
   @override
   _SearchButtonState createState() => _SearchButtonState();
 }
@@ -16,7 +20,9 @@ class _SearchButtonState extends State<SearchButton> {
       icon: Icon(Icons.search),
       color: primaryColor,
       iconSize: 30.0,
-      onPressed: () {},
+      onPressed: () {
+        widget.onTap();
+      },
     );
   }
 }

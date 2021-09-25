@@ -1,6 +1,7 @@
 import 'package:doctor/demodata.dart';
 import 'package:doctor/theme/sharedTextStyleAndColor.dart';
 import 'package:doctor/widgets/doctorwidget.dart';
+import 'package:doctor/widgets/filterButton.dart';
 import 'package:doctor/widgets/searchicon.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,8 @@ class _AllPopularState extends State<AllPopular> {
         ),
         iconTheme: IconThemeData(color: primaryColor, size: 30.0),
         actions: [
-          SearchButton()
+          FilterButton(),
+          SearchButton(() {}),
         ],
       ),
       body: Container(

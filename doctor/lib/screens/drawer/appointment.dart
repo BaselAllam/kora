@@ -35,7 +35,7 @@ void initState() {
         ),
         iconTheme: IconThemeData(color: primaryColor, size: 30.0),
         actions: [
-          SearchButton()
+          SearchButton(() {})
         ],
         bottom: PreferredSize(
           preferredSize: Size(0.0, 50.0),

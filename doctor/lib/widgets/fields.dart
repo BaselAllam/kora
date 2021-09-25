@@ -3,11 +3,17 @@ import 'package:flutter/material.dart';
 
 
 
-Container field(String label, IconData icon, TextInputType type, TextEditingController controller, {bool secure = false, Widget suffix = const SizedBox()}) {
+Container field(String label, IconData icon, TextInputType type, TextEditingController controller, Key key, {bool secure = false, Widget suffix = const SizedBox()}) {
   return Container(
-    height: 50.0,
+    height: 70.0,
     margin: EdgeInsets.all(10.0),
-    child: TextField(
+    child: TextFormField(
+      key: key,
+      validator: (value) {
+        if(value!.isEmpty) {
+          return 'This field required!';
+        }
+      },
       decoration: InputDecoration(
         border: inputBorder(secondaryColor),
         focusedBorder: inputBorder(mainColor),

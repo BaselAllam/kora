@@ -25,7 +25,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
         ),
         iconTheme: IconThemeData(color: primaryColor, size: 30.0),
         actions: [
-          SearchButton()
+          SearchButton(() {})
         ],
       ),
       floatingActionButton: FloatingActionButton(

@@ -23,7 +23,7 @@ class _AboutUsState extends State<AboutUs> {
         ),
         iconTheme: IconThemeData(color: primaryColor, size: 30.0),
         actions: [
-          SearchButton()
+          SearchButton(() {})
         ],
       ),
     );

@@ -23,7 +23,7 @@ class _ProfileState extends State<Profile> {
         ),
         iconTheme: IconThemeData(color: primaryColor, size: 30.0),
         actions: [
-          SearchButton()
+          SearchButton(() {})
         ],
       ),
     );

@@ -25,7 +25,7 @@ class _AllCategoryState extends State<AllCategory> {
         ),
         iconTheme: IconThemeData(color: primaryColor, size: 30.0),
         actions: [
-          SearchButton()
+          SearchButton(() {})
         ],
       ),
       body: Container(
