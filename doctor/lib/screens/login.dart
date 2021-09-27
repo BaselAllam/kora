@@ -1,3 +1,4 @@
+import 'package:doctor/models/shared.dart';
 import 'package:doctor/screens/homepage.dart';
 import 'package:doctor/screens/signup.dart';
 import 'package:doctor/theme/sharedTextStyleAndColor.dart';
@@ -105,6 +106,7 @@ bool isSecure = true;
                         if(!formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(snack(Colors.red, 'Some Fields Reuqired'));
                         }else{
+                          Shared.saveToLocal('isLoggedIn', value: true);
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {return HomePage();}));
                         }
                       }

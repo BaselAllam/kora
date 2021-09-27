@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:doctor/models/shared.dart';
 import 'package:doctor/screens/homepage.dart';
 import 'package:doctor/theme/sharedTextStyleAndColor.dart';
 import 'package:doctor/widgets/buttonwidget.dart';
@@ -5,6 +8,7 @@ import 'package:doctor/widgets/fields.dart';
 import 'package:doctor/widgets/snack.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 
 
 
@@ -38,6 +42,8 @@ bool isAccespted = false;
 
 DateTime birthDate = DateTime(1990);
 
+File? image;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,17 +68,22 @@ DateTime birthDate = DateTime(1990);
                     width: MediaQuery.of(context).size.width/1.5,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.grey[100]
-                      // image: DecorationImage(
-                      //   image: NetworkImage('https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?size=338&ext=jpg'),
-                      //   fit: BoxFit.fill
-                      // )
+                      color: Colors.grey[100],
+                      image: image == null ? DecorationImage(
+                        image: NetworkImage('https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?size=338&ext=jpg'),
+                        fit: BoxFit.fill
+                      ) : DecorationImage(
+                        image: FileImage(image!),
+                        fit: BoxFit.fill
+                      )
                     ),
                     child: IconButton(
                       icon: Icon(Icons.add_a_photo),
                       color: primaryColor,
                       iconSize: 30.0,
-                      onPressed: () {},
+                      onPressed: () async {
+                        pickImage(ImageSource.camera);
+                      },
                     ),
                   ),
                 ],
@@ -187,6 +198,7 @@ DateTime birthDate = DateTime(1990);
                         }else if(gender.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(snack(Colors.red, 'Select your Gender'));
                         }else{
+                          Shared.saveToLocal('isLoggedIn', value: true);
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {return HomePage();}));
                         }
                       }
@@ -220,5 +232,11 @@ DateTime birthDate = DateTime(1990);
       title: Text(title, style: primaryTextStyle,),
       trailing: trailing
     );
+  }
+  pickImage(ImageSource source) async {
+    XFile? _pickedImage = await ImagePicker().pickImage(source: source);
+    setState(() {
+      image = File(_pickedImage!.path);
+    });
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 
 
-Container field(String label, IconData icon, TextInputType type, TextEditingController controller, Key key, {bool secure = false, Widget suffix = const SizedBox()}) {
+Container field(String label, IconData icon, TextInputType type, TextEditingController controller, Key key, {bool secure = false, Widget suffix = const SizedBox(), Function? onSubmmit}) {
   return Container(
     height: 70.0,
     margin: EdgeInsets.all(10.0),
@@ -26,6 +26,9 @@ Container field(String label, IconData icon, TextInputType type, TextEditingCont
       keyboardType: type,
       obscureText: secure,
       controller: controller,
+      onFieldSubmitted: (value) {
+        onSubmmit!();
+      },
     ),
   );
 }
