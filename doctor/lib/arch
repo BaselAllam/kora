@@ -1,0 +1,17 @@
+
+
+Categories :
+        parameters:
+            id, image, title, list<doctors>
+
+
+
+Doctors :
+        parameters:
+            id, drName, drImage, drPrice, list<reviews>
+
+
+
+Review :
+        parameters:
+            id, userName, rating, description
