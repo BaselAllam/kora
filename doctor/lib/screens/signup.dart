@@ -199,7 +199,7 @@ File? image;
                           ScaffoldMessenger.of(context).showSnackBar(snack(Colors.red, 'Select your Gender'));
                         }else{
                           Shared.saveToLocal('isLoggedIn', value: true);
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {return HomePage();}));
+                          // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {return HomePage();}));
                         }
                       }
                     ),

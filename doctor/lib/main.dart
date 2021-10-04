@@ -1,7 +1,9 @@
+import 'package:doctor/models/mainmodel.dart';
 import 'package:doctor/models/shared.dart';
 import 'package:doctor/screens/homepage.dart';
 import 'package:doctor/screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 
 void main() {
@@ -27,9 +29,16 @@ void initState() {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: valid == true ? HomePage() : Login(),
-      debugShowCheckedModeBanner: false,
+    return ScopedModel(
+      model: MainModel(),
+      child: ScopedModelDescendant(
+        builder: (context, child, MainModel model) {
+          return  MaterialApp(
+            home: valid == true ? HomePage(model) : Login(),
+            debugShowCheckedModeBanner: false,
+          );
+        },
+      ),
     );
   }
   checkData() async {

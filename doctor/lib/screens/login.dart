@@ -107,7 +107,7 @@ bool isSecure = true;
                           ScaffoldMessenger.of(context).showSnackBar(snack(Colors.red, 'Some Fields Reuqired'));
                         }else{
                           Shared.saveToLocal('isLoggedIn', value: true);
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {return HomePage();}));
+                          // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {return HomePage();}));
                         }
                       }
                     ),
