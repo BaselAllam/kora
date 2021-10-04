@@ -35,3 +35,7 @@ mixin CategoryController on Model{
     // Model => ability to share data and notifyListeners
     // ScopedModel => top of app tree
     // ScopedModelDecendent => parent for widget which need to listen on changes
+
+
+
+    // https://i.pinimg.com/originals/49/06/24/4906246fd15511bfff1191ee4f55fb22.jpg
