@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Shared{
 
+  static final domain = 'https://doctor-327311-default-rtdb.firebaseio.com';
+
  static Future<void> saveToLocal(String key, {bool value = false}) async {
 
    SharedPreferences _sharedPrefrences = await SharedPreferences.getInstance();

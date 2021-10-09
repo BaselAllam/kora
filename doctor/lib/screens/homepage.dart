@@ -1,4 +1,5 @@
 import 'package:doctor/demodata.dart';
+import 'package:doctor/models/doctors/doctorModel.dart';
 import 'package:doctor/models/mainmodel.dart';
 import 'package:doctor/screens/allcategory.dart';
 import 'package:doctor/screens/allpopular.dart';
@@ -127,11 +128,12 @@ class _HomePageState extends State<HomePage> {
             item('Category', AllCategory()),
             Container(
               height: 125.0,
-              child: ListView.builder(
+              child: model.isGetCategoriesLoading == true ? Center(child: CircularProgressIndicator()) :
+               ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: model.allCategories.length,
                 itemBuilder: (context, index) {
-                  return CategoryWidget(model.allCategories[index].image);
+                  return CategoryWidget(model.allCategories[index]);
                 },
               ),
             ),
@@ -147,8 +149,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             item('Wishlisted Doctor', Wishlist()),
-            for(String img in doctorImages)
-            DoctorWidget(img),
+            for(DoctorModel doctor in model.allFav)
+            DoctorWidget(doctor),
           ],
         ),
       );

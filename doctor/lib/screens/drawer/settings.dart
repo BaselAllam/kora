@@ -52,7 +52,7 @@ bool isPressed = false;
             AnimatedContainer(
               duration: Duration(milliseconds: 500),
               curve: Curves.easeInOut,
-              height: isPressed == false ? 1.0 : MediaQuery.of(context).size.height/3.3,
+              height: isPressed == false ? 1.0 : 230.0,
               child: isPressed == false ? SizedBox() :
                Column(
                 children: [

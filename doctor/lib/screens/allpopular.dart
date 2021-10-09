@@ -36,7 +36,8 @@ class _AllPopularState extends State<AllPopular> {
           scrollDirection: Axis.vertical,
           itemCount: doctorImages.length,
           itemBuilder: (context, index) {
-            return DoctorWidget(doctorImages[index]);
+            return SizedBox();
+            // return DoctorWidget(doctorImages[index]);
           },
         ),
       ),

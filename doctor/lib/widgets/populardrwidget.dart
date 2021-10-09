@@ -1,3 +1,4 @@
+import 'package:doctor/models/doctors/doctorModel.dart';
 import 'package:doctor/screens/doctorproifle.dart';
 import 'package:doctor/theme/sharedTextStyleAndColor.dart';
 import 'package:doctor/widgets/fav.dart';
@@ -28,7 +29,7 @@ class _PopularDoctorWidgetState extends State<PopularDoctorWidget> {
           children: [
             Row(
               children: [
-                Fav(),
+                // Fav(),
                 Text(
                   '    4.9',
                   style: secondaryTextStyle,

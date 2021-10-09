@@ -38,7 +38,8 @@ class _AllCategoryState extends State<AllCategory> {
           scrollDirection: Axis.vertical,
           itemCount: categoryImages.length,
           itemBuilder: (context, index) {
-            return CategoryWidget(categoryImages[index]);
+            return SizedBox();
+            // return CategoryWidget(categoryImages[index]);
           },
         ),
       ),

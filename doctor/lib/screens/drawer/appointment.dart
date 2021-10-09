@@ -49,8 +49,8 @@ void initState() {
             ),
             controller: tabController,
             labelColor: Colors.white,
-            labelStyle: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),
-            unselectedLabelStyle: primaryTextStyle,
+            labelStyle: TextStyle(color: Colors.white, fontSize: responsiveAppointmentFont(MediaQuery.of(context).size.width), fontWeight: FontWeight.bold),
+            unselectedLabelStyle: TextStyle(color: primaryColor, fontSize: responsiveAppointmentFont(MediaQuery.of(context).size.width), fontWeight: FontWeight.bold),
             unselectedLabelColor: primaryColor,
           )
         ),
@@ -67,5 +67,15 @@ void initState() {
         ),
       ),
     );
+  }
+}
+
+
+double responsiveAppointmentFont(double width) {
+
+  if(width <= 350) {
+    return 16.0;
+  }else{
+    return 20.0;
   }
 }

@@ -10,6 +10,7 @@ class DoctorModel{
   String drImage;
   num drPrice;
   List<ReviewModel> reviews;
+  bool isFav;
 
-  DoctorModel(this.id, this.drName, this.drImage, this.drPrice, this.reviews);
+  DoctorModel(this.id, this.drName, this.drImage, this.drPrice, this.reviews, this.isFav);
 }

@@ -1,8 +1,10 @@
 import 'package:doctor/demodata.dart';
+import 'package:doctor/models/mainmodel.dart';
 import 'package:doctor/theme/sharedTextStyleAndColor.dart';
 import 'package:doctor/widgets/doctorwidget.dart';
 import 'package:doctor/widgets/searchicon.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 
 
@@ -28,15 +30,19 @@ class _WishlistState extends State<Wishlist> {
           SearchButton(() {})
         ],
       ),
-      body: Container(
-        margin: EdgeInsets.all(10.0),
-        child: ListView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: doctorImages.length,
-          itemBuilder: (context, index) {
-            return DoctorWidget(doctorImages[index]);
-          },
-        ),
+      body: ScopedModelDescendant(
+        builder: (context, child, MainModel model) {
+          return Container(
+            margin: EdgeInsets.all(10.0),
+            child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: model.allFav.length,
+              itemBuilder: (context, index) {
+                return DoctorWidget(model.allFav[index]);
+              },
+            ),
+          );
+        },
       ),
     );
   }
